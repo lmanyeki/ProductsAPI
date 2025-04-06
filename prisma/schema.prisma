@@ -14,14 +14,14 @@ datasource db {
 }
 
 model Product {
-  id String @id @default(uuid())
+  id              String   @id @default(uuid())
   prodTitle       String
   prodDescription String
-  unitsLeft          Int
-  pricePerUnit       String
-  isOnOffer          Boolean  @default(false)
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  unitsLeft       Int
+  pricePerUnit    String
+  isOnOffer       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   @@map("products_table")
 }
