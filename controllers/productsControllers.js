@@ -47,10 +47,18 @@ export const getSpecificProduct = async (req, res) => {
         id: productId,
       },
     });
+    if (product) {
     res.status(200).json({
       status: "Success",
-      data: "product",
+      message: `Product ${product.prodTitle} found.`,
+      data: product
     });
+  } else {
+    res.status(404).json({
+      status: "Error",
+      message: "Product not found.",
+    });
+  }
   } catch (e) {
     res.status(500).json({
       status: "Error",
@@ -66,7 +74,7 @@ export const getOffer = async (_req, res) => {
         isOnOffer: true,
       },
     });
-    
+
     res.status(200).json({
       status: "Success",
       message: "Product is on offer",
@@ -85,7 +93,7 @@ export const updateProduct = async (req, res) => {
     req.body;
   const { productId } = req.params;
   try {
-    const updatedProduct = await client.Product.findFirst({
+    const updatedProduct = await client.Product.update({
       where: {
         id: productId,
       },

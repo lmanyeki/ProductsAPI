@@ -4,7 +4,7 @@ CREATE TABLE "products_table" (
     "prodTitle" TEXT NOT NULL,
     "prodDescription" TEXT NOT NULL,
     "unitsLeft" INTEGER NOT NULL,
-    "pricePerUnit" TEXT NOT NULL,
+    "pricePerUnit" DOUBLE PRECISION NOT NULL,
     "isOnOffer" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
